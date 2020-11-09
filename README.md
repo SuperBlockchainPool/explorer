@@ -11,5 +11,5 @@ Block explorer for GoodNess CryptoNote based cryptocurrency.
 
 ### Development
 
-Donate: [GNS]
+Donate:
 gnsm5vgk8fCUP1ZKUQfRZSQ8WdH2smkQ6M3W8nwe3fo63HsJKmPy3hHcasewYUj55cJ9S7uYFXhFUTAV9n82nUCZ49u6k7jn2m
