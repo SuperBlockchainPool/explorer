@@ -61,7 +61,7 @@ function updateTextLinkable(elementId, text){
 
 var currentPage;
 var lastStats;
-var numberFormatter = new Intl.NumberFormat('us-US'); // US formatting, force commas.
+var numberFormatter = new Intl.NumberFormat('en-US'); // US formatting, force commas.
 
 function localizeNumber(number) {
     return numberFormatter.format(number);
