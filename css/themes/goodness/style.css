@@ -8,6 +8,14 @@
     font-family: 'FontAwesome' !important;
 }
 
+.navbar-brand {
+    float: left;
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 32px !important;
+    height: 50px;
+}
+
 #coinName {
     text-transform: capitalize;
 }

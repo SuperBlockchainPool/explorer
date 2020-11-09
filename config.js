@@ -5,22 +5,22 @@ var coinUnits = 100000000;  // enter in the amount of atomic units in 1 coin, eg
 var totalSupply =  10000000000000000000; // enter the total supply in atomic units
 var symbol = 'GNS'; // enter the coin's ticker
 var refreshDelay = 30000;
-
-// pools stats by MainCoins
 var networkStat = {
  "gns": [
-	["superblockchain.con-ip.com/gns", "https://superblockchain.con-ip.com:8149"]
-   ]
+  ["superblockchain.con-ip.com/gns", "https://superblockchain.con-ip.com:8149"],
+  ["communitypool.org/goodness", "https://xvv.communitypool.org:8237"]
+ ]
 };
 
 var networkStat2 = {
  "gns": [
-	["superblockchain.con-ip.com/gns", "https://superblockchain.con-ip.com:8149"]
-  ]
+  ["superblockchain.con-ip.com/gns", "https://superblockchain.con-ip.com:8149"],
+  ["communitypool.org/goodness", "https://xvv.communitypool.org:8237"]
+ ]
 };
 
 var networkStat3 = {
  "gns": [
 	["webgns.semipool.com", "https://webgns.semipool.com/api"]	
-  ]
+ ]
 };

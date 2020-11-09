@@ -133,7 +133,7 @@
             $(".transaction-timeago").timeago('update', new Date(block.timestamp * 1000).toISOString());
         }
         updateText('transaction.amount_out', getReadableCoins(details.amount_out));
-        updateText('transaction.fee', getReadableCoins(details.fee));
+        updateText('transaction.fee', getReadableCoinsFee(details.fee));
         updateText('transaction.mixin', details.mixin);
         if (!details.mixin)
             $('#div_transaction_mixin').hide();
@@ -170,7 +170,7 @@
             $(".transaction-timeago").timeago('update', new Date(transaction.timestamp * 1000).toISOString());
         }
         updateText('transaction.amount_out', getReadableCoins(transaction.totalOutputsAmount));
-        updateText('transaction.fee', getReadableCoins(transaction.fee));
+        updateText('transaction.fee', getReadableCoinsFee(transaction.fee));
         updateText('transaction.mixin', transaction.mixin);
         if (!transaction.mixin)
             $('#div_transaction_mixin').hide();

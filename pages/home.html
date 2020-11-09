@@ -21,7 +21,7 @@
                             <li><i class="fa fa-lock"></i> Average Difficulty: <span id="avgDifficulty"></span></li>
                             <li><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></li>
                             <li><i class="fa fa-tachometer"></i> Average Hash Rate: <span id="avgHashrate"></span></li>
-                            <li><i class="fa fa-money"></i> Total Supply: <span>7,500,000,000</span></li>
+                            <li><i class="fa fa-money"></i> Total Supply: <span>100,000,000,000.00</span></li>
                         </ul>
                     </div>
                 </div>
@@ -287,7 +287,7 @@
     });
     $('#goto-height-go').click(function() {
         var height = document.getElementById('goto-height').value;
-        var newUrl = "/?height="+height;
+        var newUrl = "?height="+height;
         window.location = newUrl;
     });
     $('#goto-height').keyup(function(e) {
@@ -427,11 +427,10 @@
                         var row = document.createElement('tr');
                         var timestamp = Date().now; // this is not yet part of the json that gets returned in f_transactions_pool_json, leave for now
                         var columns =
-                           /* '<td>' + formatDate(timestamp) + ' (<span class="mtx-ago"></span>)' + '</td>' +*/
-                            '<td>' + getReadableCoins(amount, 4, true) + '</td>' +
-                            '<td>' + getReadableCoins(fee, 4, true) + '</td>' +
+                            '<td>' + getReadableCoins(amount) + '</td>' +
+                            '<td>' + getReadableCoinsFee(fee) + '</td>' +
                             '<td>' + localizeNumber(size) + '</td>' +
-                            '<td>' + formatPaymentLink(hash) + '</td>';
+                            '<td>' + hash + '</td>';
                         row.innerHTML = columns;
                         $(txsRows).append(row);
                        // $(row).find('.mtx-ago').timeago('update', new Date(timestamp * 1000).toISOString()); We can re-enable this after a timestamp is added to the mem_pool json

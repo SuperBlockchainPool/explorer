@@ -61,7 +61,7 @@ function updateTextLinkable(elementId, text){
 
 var currentPage;
 var lastStats;
-var numberFormatter = new Intl.NumberFormat('en-US'); // US formatting, force commas.
+var numberFormatter = new Intl.NumberFormat('us-US'); // US formatting, force commas.
 
 function localizeNumber(number) {
     return numberFormatter.format(number);
@@ -95,6 +95,11 @@ function formatBlockLink(hash){
 function getReadableCoins(coins, digits, withoutSymbol){
     var amount = (parseInt(coins || 0) / coinUnits).toFixed(digits || coinUnits.toString().length - 1);
     return localizeNumber(amount) + (withoutSymbol ? '' : (' ' + symbol));
+}
+
+function getReadableCoinsFee(fee){
+    var fee = (fee / coinUnits);
+    return (fee);
 }
 
 function formatDate(time){

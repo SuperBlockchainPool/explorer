@@ -1,27 +1,5 @@
 <?php
 
-// API 1 - Use Blockchain Cache
-
-function fetch_info(string $api) {
-           $_url = $api . '/info';
-           $response = file_get_contents($_url);
-           return json_decode($response, true);
-};
-   
-function fetch_reward(string $api) {
-           $url = $api . '/block/header/top';
-           $response = file_get_contents($url);
-           return json_decode($response, true);
-};
-
-function fetch_supply(string $api) {
-        $url = $api . '/supply';
-        $response = file_get_contents($url);
-        return json_decode($response, true);
-};
-
-// API 2 (Redundant) - Use Classic Daemon
-
 function build_post_context(string $postdata) {
         return stream_context_create(array(
                 'http' =>
@@ -47,7 +25,9 @@ function fetch_rpc(string $api, string $method, string $params) {
 };
 
 function fetch_getinfo(string $api) {
-           $_url = $api . '/getinfo';
-           $response = file_get_contents($_url);
-           return json_decode($response, true);
+        $_url = $api . '/getinfo';
+        $response = file_get_contents($_url);
+        return json_decode($response, true);
 };
+
+?>

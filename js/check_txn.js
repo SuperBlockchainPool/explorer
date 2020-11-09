@@ -29,9 +29,9 @@ function checkTxn(transactionResponse, privateKey, address, privateKeyType) {
     var s = 8, m = s + 64, e = m + 64; //offsets
     if (privateKey.length !== 64 || validHex(privateKey) !== true) {
         results.error = "Invalid private key.";
-    } else if (address.length !== 97 || (addrHex.slice(-s) !== cn_fast_hash(addrHex.slice(0, -s)).slice(0, s))) {
+    } else if (address.length !== 98 || (addrHex.slice(-s) !== cn_fast_hash(addrHex.slice(0, -s)).slice(0, s))) {
         results.error = "Bad address";
-    } else if (privateKeyType === 'view' && addrHex.slice(m-4, e-4) !== sec_key_to_pub(privateKey)) {
+    } else if (privateKeyType === 'view' && addrHex.slice(m-2, e-2) !== sec_key_to_pub(privateKey)) {
         console.log(privateKey);
         console.log(addrHex.slice(m, e));
         console.log(addrHex);
@@ -40,7 +40,7 @@ function checkTxn(transactionResponse, privateKey, address, privateKeyType) {
     } else if (hash.length !== 64 || !validHex(hash)) {
         results.error = "Invalid TXN Hash";
     } else {
-        var pub = addrHex.slice(m-4, e-4);
+        var pub = addrHex.slice(m-2, e-2);
         if (privateKeyType === "view") {
             pub = pubKeyFromExtra(txn.extra);
         }
@@ -49,10 +49,10 @@ function checkTxn(transactionResponse, privateKey, address, privateKeyType) {
             results.error = "Unrecognized tx_extra format!";
         } else {
             var der = cnUtil.generate_key_derivation(pub, privateKey);
-            var spk = addrHex.slice(s-4, m-4);
+            var spk = addrHex.slice(s-2, m-2);
             for (i = 0; i < txn.vout.length; i++) {
                 var pubkey = cnUtil.derive_public_key(der, i, spk);
-                var amount = txn.vout[i].amount / 100;
+                var amount = txn.vout[i].amount / 100000000;
                 if (pubkey === txn.vout[i].target.data.key) {
                     results.total_owned += amount;
                     results.owned.push([i, pubkey, amount]);
